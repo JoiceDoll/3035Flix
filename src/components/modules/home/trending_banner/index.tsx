@@ -1,6 +1,7 @@
 import { SwiperSlide } from "swiper/react";
 import { Swipper } from "../../../../libs/swipper";
 import type { MovieTrending } from "../../../../@types/trendings";
+import { ThumbsUp } from "lucide-react";
 
 export type TrendingBannerProps = {
   highRatedMovies: MovieTrending[];
@@ -10,13 +11,24 @@ export const TrendingBanner: React.FC<TrendingBannerProps> = ({
   highRatedMovies,
 }) => (
   <Swipper>
-    {highRatedMovies.map((movie) => (
-      <SwiperSlide key={movie.id} className="w-full">
-        <img
-          src={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`}
-          className="aspect-10/4 object-cover w-full rounded-lg object-top bg-(image:--bg-banner-gradient)"
-          loading="lazy"
-        />
+    {highRatedMovies.map(({ id, title, vote_average, backdrop_path }) => (
+      <SwiperSlide key={id} className="w-full">
+        <a href={`/movie/${id}`}>
+          <div
+            className="aspect-10/8 sm:aspect-10/6 md:aspect-10/4 w-full bg-cover object-top flex flex-col justify-end rounded-lg"
+            style={{
+              backgroundImage: `url(https://image.tmdb.org/t/p/original${backdrop_path})`,
+            }}
+          >
+            <div className="text-white bg-(image:--bg-banner-gradient) p-4 md:p-12 z-20 flex flex-col gap-2">
+              <h2 className="text-lg md:text-4xl">{title}</h2>
+              <div className="flex items-center gap-2 text-lg md:text-xl">
+                <ThumbsUp size={20} />
+                <span>{vote_average.toFixed(1)}</span>
+              </div>
+            </div>
+          </div>
+        </a>
       </SwiperSlide>
     ))}
   </Swipper>

@@ -1,19 +1,9 @@
-export function formatDate(dateString: string) {
-  const weekDay = [
-    "Domingo",
-    "Segunda",
-    "Terça",
-    "Quarta",
-    "Quinta",
-    "Sexta",
-    "Sábado",
-  ];
+import { parseISO, format } from "date-fns";
+import { ptBR } from "date-fns/locale";
 
-  const date = new Date(dateString);
+export function formatDate(dateString?: string) {
+  if (!dateString) return "";
 
-  if (isNaN(date.getTime())) {
-    throw new Error("Data inválida");
-  }
-
-  return weekDay[date.getDay()];
+  const date = parseISO(dateString);
+  return format(date, "dd 'de' MMM 'de' yyyy", { locale: ptBR });
 }

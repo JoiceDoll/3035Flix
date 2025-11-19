@@ -11,9 +11,13 @@ export function Swipper({ children }: SwipperProps) {
   return (
     <Swiper
       modules={[Autoplay]}
-      autoplay={{ delay: 6000 }}
+      autoplay={{ delay: 4000 }}
       slidesPerView={1}
       loop
+      preventClicks={false}
+      preventClicksPropagation={false}
+      simulateTouch={true}
+      noSwiping={false}
       className="w-full h-full"
     >
       {children}

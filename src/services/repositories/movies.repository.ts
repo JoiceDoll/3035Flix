@@ -1,7 +1,7 @@
 import { httpClient } from "../http-client";
 import { MOVIES } from "../endpoints";
 import type { AxiosResponse } from "axios";
-import type { ITrendings, MovieTrending } from "../../@types/trendings";
+import type { ITrendings, MovieDetails } from "../../@types/trendings";
 
 export const getTrendingMovies = async (): Promise<
   AxiosResponse<{ results: ITrendings[] }>
@@ -11,10 +11,9 @@ export const getTrendingMovies = async (): Promise<
 
 export const getMovie = async (
   id: number
-): Promise<AxiosResponse<{ data: MovieTrending }>> => {
+): Promise<AxiosResponse<MovieDetails>> => {
   return httpClient.get(`${MOVIES.GET_DETAIL_MOVIE}/${id}`);
 };
-
 
 export const searchMovie = async (
   title: string

@@ -23,7 +23,7 @@ export const Header = () => {
             alt="3035FLIX Logo"
             aria-label="3035flix Logo"
             loading="lazy"
-            className="object-contain"
+            className="object-contain  w-[30px] md:w-[60px] h-[30px] md:h-[30px]"
             width={60}
             height={60}
           />
@@ -36,12 +36,6 @@ export const Header = () => {
                 <span className="hidden md:block">Trending</span>
               </a>
             </li>
-            {/* <li>
-            <a href="/series">Séries</a>
-          </li>
-          <li>
-            <a href="/filmes">Filmes</a>
-          </li> */}
           </ul>
         </nav>
       </div>

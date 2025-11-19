@@ -7,8 +7,13 @@ export type MovieTrending = {
   backdrop_path: string | null;
   release_date: string;
   video: boolean;
-  vote_average: number;
   vote_count: number;
+  vote_average: number;
+};
+
+export type MovieDetails = Omit<MovieTrending, "media_type" | "video"> & {
+  overview: string;
+  homepage: string;
 };
 
 export interface ITrendings extends MovieTrending {
