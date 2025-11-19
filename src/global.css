@@ -16,6 +16,7 @@
   --color-saveBtn: #47b960;
   --color-hover-saveBtn: #2db34a;
   --color-modalBorder: #999999;
+  --bg-banner-gradient: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
 }
 
 html {
@@ -31,10 +32,10 @@ html {
 
 body {
   margin: 0px;
-  color: #4b4848;
+  color: #dadcde;
   --type-first: "Roboto", Arial, sans-serif;
   font-family: var(--type-first);
-  background-color: #dddddd;
+  background-color: #17161b;
 }
 
 a {
