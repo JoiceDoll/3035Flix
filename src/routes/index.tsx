@@ -1,18 +1,38 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { Home, MovieDetails } from "../pages";
+import { Home, MovieDetails, SearchPage } from "../pages";
+import { Header } from "../components";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Home />,
+    element: (
+      <>
+        <Header />
+        <Home />
+      </>
+    ),
+  },
+  {
+    path: "/movie/:id",
+    element: (
+      <>
+        <Header />
+        <MovieDetails />
+      </>
+    ),
+  },
+  {
+    path: "/search",
+    element: (
+      <>
+        <Header />
+        <SearchPage />
+      </>
+    ),
   },
   {
     path: "*",
     element: <p>Not Found</p>,
-  },
-  {
-    path: "/movie/:id",
-    element: <MovieDetails />,
   },
 ]);
 

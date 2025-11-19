@@ -1,11 +1,9 @@
 import type { ITrendings } from "../../@types/trendings";
-import { Header } from "../../components";
-import { MovieCard } from "../../components/shared/movie_card";
-import { useShops } from "../../services/queries/posts.query";
-import { TrendingBanner } from "../../components/modules";
+import { MovieCard, TrendingBanner } from "../../components";
+import { useFindTrendings } from "../../services/queries/posts.query";
 
 export function Home() {
-  const { data } = useShops();
+  const { data } = useFindTrendings();
   const movies = data?.data.results as ITrendings[];
   const highRated = movies?.filter((movie) => movie?.vote_average > 6);
 
@@ -13,7 +11,6 @@ export function Home() {
 
   return (
     <div className="px-18">
-      <Header />
       <section>
         <h1 className="text-2xl mb-10">Os maiores sucessos</h1>
         {highRated && <TrendingBanner highRatedMovies={highRated} />}

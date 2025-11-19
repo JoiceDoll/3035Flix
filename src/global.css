@@ -16,7 +16,16 @@
   --color-saveBtn: #47b960;
   --color-hover-saveBtn: #2db34a;
   --color-modalBorder: #999999;
-  --bg-banner-gradient: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+  --bg-banner-gradient: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.9),
+    transparent
+  );
+  --bg-top-linear-gradient: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.9),
+    transparent
+  );
 }
 
 html {

@@ -3,9 +3,10 @@ import { useNavigate } from "react-router-dom";
 
 type MovieCardProps = {
   movie: MovieTrending;
+  className?: string;
 };
 
-export const MovieCard = ({ movie }: MovieCardProps) => {
+export const MovieCard = ({ movie, className }: MovieCardProps) => {
   const navigate = useNavigate();
 
   return (
@@ -14,7 +15,7 @@ export const MovieCard = ({ movie }: MovieCardProps) => {
       onClick={() => navigate(`/movie/${movie.id}`)}
     >
       <div
-        className="aspect-2/3 w-full bg-gray-800 bg-cover bg-center flex flex-col justify-end "
+        className={`aspect-2/3 w-full bg-gray-800 bg-cover bg-center flex flex-col justify-end ${className}`}
         style={{
           backgroundImage: `url(https://image.tmdb.org/t/p/w500${movie.poster_path})`,
         }}
