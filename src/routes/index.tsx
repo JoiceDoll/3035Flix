@@ -9,9 +9,9 @@ const router = createBrowserRouter([
       { path: "/", element: <Home /> },
       { path: "/search", element: <SearchPage /> },
       { path: "/movie/:id", element: <MovieDetails /> },
-      { path: "*", element: <NotFound /> },
     ],
   },
+  { path: "*", element: <NotFound /> },
 ]);
 
 export default function Routes() {
