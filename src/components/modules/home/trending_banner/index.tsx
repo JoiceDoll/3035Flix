@@ -2,6 +2,7 @@ import { SwiperSlide } from "swiper/react";
 import { Swipper } from "@/libs/swipper";
 import type { MovieTrending } from "@/@types/trendings";
 import { ThumbsUp } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export type TrendingBannerProps = {
   highRatedMovies: MovieTrending[];
@@ -13,7 +14,7 @@ export const TrendingBanner: React.FC<TrendingBannerProps> = ({
   <Swipper>
     {highRatedMovies.map(({ id, title, vote_average, backdrop_path }) => (
       <SwiperSlide key={id} className="w-full">
-        <a href={`/movie/${id}`}>
+        <Link to={`/movie/${id}`}>
           <div
             className="aspect-10/8 sm:aspect-10/6 md:aspect-10/3 w-full bg-cover object-top flex flex-col justify-end rounded-lg"
             style={{
@@ -33,7 +34,7 @@ export const TrendingBanner: React.FC<TrendingBannerProps> = ({
               </div>
             </div>
           </div>
-        </a>
+        </Link>
       </SwiperSlide>
     ))}
   </Swipper>

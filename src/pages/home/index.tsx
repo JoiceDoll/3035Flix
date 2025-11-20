@@ -31,7 +31,7 @@ export function Home() {
   });
 
   return (
-    <div className="mt-12 px-8 md:px-18">
+    <div className="mt-12 px-6 md:px-18">
       <section className="flex gap-3 flex-col">
         <h1 className="text-lg md:text-2xl mb-10">Top filmes da semana</h1>
         {isLoading ? (
