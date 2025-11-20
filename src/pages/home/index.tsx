@@ -1,6 +1,6 @@
-import type { ITrendings } from "../../@types/trendings";
-import { MovieCard, TrendingBanner } from "../../components";
-import { useFindTrendings } from "../../services/queries/posts.query";
+import type { ITrendings } from "@/@types/trendings";
+import { MovieCard, TrendingBanner } from "@/components";
+import { useFindTrendings } from "@/services/queries/posts.query";
 
 export function Home() {
   const { data } = useFindTrendings();

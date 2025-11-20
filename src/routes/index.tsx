@@ -1,5 +1,5 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { Home, MovieDetails, SearchPage } from "../pages";
+import { Home, MovieDetails, SearchPage, NotFound } from "@/pages";
 import { Header } from "../components";
 
 const router = createBrowserRouter([
@@ -32,7 +32,7 @@ const router = createBrowserRouter([
   },
   {
     path: "*",
-    element: <p>Not Found</p>,
+    element: <NotFound />,
   },
 ]);
 

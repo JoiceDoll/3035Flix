@@ -1,6 +1,6 @@
 import { useSearchParams } from "react-router-dom";
 import { useSearchMovie } from "../../services/queries/posts.query";
-import { MovieCard } from "../../components";
+import { CardSkeleton, MovieCard, NoResults } from "../../components";
 import type { MovieTrending } from "../../@types/trendings";
 
 export function SearchPage() {
@@ -17,18 +17,15 @@ export function SearchPage() {
         Resultados para: <span className="text-violet-500">{query}</span>
       </h1>
 
-      {isLoading && <p>Carregando...</p>}
-      {error && <p>Erro ao buscar filmes</p>}
+      {(!isLoading && movies.length === 0) || (error && <NoResults />)}
 
-      {/* SEM RESULTADOS */}
-      {!isLoading && movies.length === 0 && (
-        <p className="text-gray-400">Nenhum resultado encontrado.</p>
-      )}
-
-      {/* LISTAGEM */}
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6 mt-16">
+        {isLoading &&
+          Array.from({ length: 10 }).map((_, index) => (
+            <CardSkeleton key={index} className="aspect-video" />
+          ))}
         {movies?.map((movie: MovieTrending) => (
-          <MovieCard key={movie.id} movie={movie} className="aspect-video"/>
+          <MovieCard key={movie.id} movie={movie} className="aspect-video" />
         ))}
       </div>
     </div>

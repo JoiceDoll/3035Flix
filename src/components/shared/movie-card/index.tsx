@@ -1,6 +1,6 @@
-import type { MovieTrending } from "../../../@types/trendings";
+import type { MovieTrending } from "@/@types/trendings";
 import { useNavigate } from "react-router-dom";
-import { formatDate } from "../../../utils";
+import { formatDate } from "@/utils";
 
 type MovieCardProps = {
   movie: MovieTrending;

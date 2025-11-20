@@ -1,3 +1,5 @@
 export * from "./header";
 export * from "./search-input";
-export * from "./movie_card";
+export * from "./movie-card";
+export * from "./button"
+export * from "./skeletons/card-skeleton"
