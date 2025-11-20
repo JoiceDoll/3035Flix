@@ -1,7 +1,7 @@
 import { useSearchParams } from "react-router-dom";
-import { useSearchMovie } from "../../services/queries/posts.query";
-import { CardSkeleton, MovieCard, NoResults } from "../../components";
-import type { MovieTrending } from "../../@types/trendings";
+import { useSearchMovie } from "@/services/queries/movies.query";
+import { CardSkeleton, MovieCard, NoResults } from "@/components";
+import type { MovieTrending } from "@/@types/trendings";
 
 export function SearchPage() {
   const [params] = useSearchParams();
@@ -14,10 +14,10 @@ export function SearchPage() {
   return (
     <div className="px-10 py-6">
       <h1 className="text-xl font-semibold mb-4">
-        Resultados para: <span className="text-violet-500">{query}</span>
+        Resultados para: <span className="text-primary-200">{query}</span>
       </h1>
 
-      {(!isLoading && movies.length === 0) || (error && <NoResults />)}
+      {((!isLoading && movies.length === 0) || error) && <NoResults />}
 
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6 mt-16">
         {isLoading &&
@@ -25,7 +25,11 @@ export function SearchPage() {
             <CardSkeleton key={index} className="aspect-video" />
           ))}
         {movies?.map((movie: MovieTrending) => (
-          <MovieCard key={movie.id} movie={movie} className="aspect-video" />
+          <MovieCard
+            key={`${movie.id} - ${movie.title}`}
+            movie={movie}
+            className="aspect-video"
+          />
         ))}
       </div>
     </div>

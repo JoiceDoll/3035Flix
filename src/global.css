@@ -6,16 +6,12 @@
   --breakpoint-lg: 976px;
   --breakpoint-xl: 1800px;
   --breakpoint-xxl: 2300px;
-  --color-primary: #7695ec;
+  --color-primary-200: #b600ed;
+  --color-primary-100: #d56ef5;
+  --color-primary-400: #620180;
   --color-black: #000000;
   --color-white: #ffffff;
-  --color-gray: #777777;
-  --color-inputText: #cccccc;
-  --color-deleteBtn: #ff5151;
-  --color-hover-deleteBtn: #fa3e3e;
-  --color-saveBtn: #47b960;
-  --color-hover-saveBtn: #2db34a;
-  --color-modalBorder: #999999;
+  --color-gray: #817f7f;
   --bg-banner-gradient: linear-gradient(
     to top,
     rgba(0, 0, 0, 0.9),

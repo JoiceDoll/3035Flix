@@ -1,4 +1,4 @@
-import { useQuery } from "@tanstack/react-query";
+import { useInfiniteQuery, useQuery } from "@tanstack/react-query";
 import {
   getTrendingMovies,
   getMovie,
@@ -6,11 +6,18 @@ import {
 } from "../repositories/movies.repository";
 
 export const useFindTrendings = () => {
-  return useQuery({
+  return useInfiniteQuery({
     queryKey: ["trendings"],
-    queryFn: getTrendingMovies,
-    retry: 0,
-    staleTime: 1000 * 60 * 60 * 1,
+    queryFn: ({ pageParam = 1 }) => getTrendingMovies(pageParam),
+
+    initialPageParam: 1,
+
+    getNextPageParam: (lastPage) => {
+      const totalPages = lastPage.total_pages;
+      const nextPage = lastPage.page + 1;
+
+      return nextPage <= totalPages ? nextPage : undefined;
+    },
   });
 };
 

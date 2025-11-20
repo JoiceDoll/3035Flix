@@ -15,7 +15,7 @@ export const Header = () => {
   const onSearch = useDebounce(handleChange, 1000);
 
   return (
-    <header className="relative px-8 md:px-18 py-3 flex flex-col md:flex-row items-center justify-between gap-8 md:gap-32 z-20 bg-(image:--bg-top-linear-gradient)">
+    <header className="relative px-8 md:px-18 py-4 flex flex-col md:flex-row items-center justify-between gap-8 md:gap-32 z-20 bg-(image:--bg-top-linear-gradient)">
       <div className="px-2 md:px-0 w-full md:max-w-[300px] flex items-center justify-between md:gap-24">
         <Link to="/" aria-label="Ir para a página inicial">
           <img
