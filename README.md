@@ -33,7 +33,9 @@ Cache inteligente com React Query
 Layout responsivo com Tailwind
 
 ## ▶️ Como rodar
+
 1 - Clone o repositório
+
 2 - Rode os comandos:
 
 npm install
